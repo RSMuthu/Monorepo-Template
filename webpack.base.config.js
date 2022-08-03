@@ -56,7 +56,7 @@ function webpackBaseConfig (infile, outfile, globalName) {
           test: /\.(svg|ico|png|webp|gif|jpe?g)$/,
           type: 'asset/resource',
           generator: {
-            filename: 'assets/img/[name].[hash:8][ext]',
+            filename: 'assets/img/[name].[contenthash:8][ext]',
           },
         },
         // js for babel
@@ -83,7 +83,7 @@ function webpackBaseConfig (infile, outfile, globalName) {
           test: /\.(eot|ttf|woff2?)$/,
           type: 'asset/resource',
           generator: {
-            filename: 'assets/fonts/[name][hash:8][ext]',
+            filename: 'assets/fonts/[name][contenthash:8][ext]',
           },
         },
       ],
@@ -91,8 +91,8 @@ function webpackBaseConfig (infile, outfile, globalName) {
     // plugins
     plugins: [
       new MiniCssExtractPlugin({
-        filename: 'static/css/[name].[hash:8].css',
-        chunkFilename: 'static/css/[name].[hash:8].chunk.css',
+        filename: 'static/css/[name].[contenthash:8].css',
+        chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
       }),
       // plugin for Vue-loader for vue component
       new VueLoaderPlugin(),
