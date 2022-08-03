@@ -1,0 +1,39 @@
+{
+  "name": "@rsmk/sample-button",
+  "version": "0.1.0",
+  "description": " Test Description ",
+  "author": "Muthu Kumaran R <rsmuthu@duck.com>",
+  "homepage": "",
+  "keywords": [],
+  "license": "MIT",
+  "main": "dist/sampleButton.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:RSMuthu/Monorepo-Template.git"
+  },
+  "publishConfig": {
+    "registry": "http://localhost:4873"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "prepublish": "npm run build",
+    "build": "webpack ./src/sampleButton.jsx",
+    "test": "jest --verbose --coverage",
+    "lint-js:test": "eslint . --ext js --ext jsx",
+    "lint-js:fix": "eslint . --ext js --ext jsx --fix",
+    "lint-css:test": "stylelint **/*.css **/*.scss --allow-empty-input",
+    "lint-css:fix": "stylelint **/*.css **/*.scss --fix --allow-empty-input"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.8.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}

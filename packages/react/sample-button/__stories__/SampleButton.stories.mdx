@@ -1,0 +1,52 @@
+<!-- sampleButton.stories.mdx -->
+<!-- FYI, please install the MDX extension in VScode if you need syntax support -->
+
+import { Meta, Story, Canvas } from '@storybook/addon-docs'
+
+import StoryComponent from '../src/SampleButton'
+import { withDesign } from "storybook-addon-designs"
+
+# @rsmk/sample-button
+>  Just a sample component to test the library creation with webpack & storybook
+
+<!-- The title prop determines where your story goes in the story list -->
+<!-- Setting figma design to random sample URL, Remove it if not needed -->
+<Meta
+  title="sampleButton"
+  component={ StoryComponent }
+  decorators={ [withDesign] }
+  parameters={{
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/Klm6pxIZSaJFiOMX5FpTul9F/storybook-addon-designs-sample',
+    }
+  }}
+/>
+
+<!-- We create a “template” of how args map to rendering -->
+export const Template = args => <StoryComponent { ...args } />;
+
+<!-- The args you need here will depend on your component -->
+<Canvas>
+  <Story
+    name="Red Button"
+    argTypes={{isDisabled: {control: 'boolean'}}}
+    args={{ bgColor: 'red', label: 'Press MEE!', isDisabled: false}}
+  >
+    { Template.bind({}) }
+  </Story>
+  <Story
+    name="Green Disabled Button"
+    argTypes={{isDisabled: {control: 'boolean'}}}
+    args={{ bgColor: 'Green', label: 'Dare Touch Me !', isDisabled: true}}
+  >
+    { Template.bind({}) }
+  </Story>
+  <Story
+    name="Yellow Button"
+    argTypes={{isDisabled: {control: 'boolean'}}}
+    args={{ bgColor: 'yellow', label: 'Yes Yellow !', isDisabled: false}}
+  >
+    { Template.bind({}) }
+  </Story>
+</Canvas>
