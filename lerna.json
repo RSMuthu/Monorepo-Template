@@ -1,0 +1,30 @@
+{
+  "packages": [
+    "packages/js/*",
+    "packages/node/*",
+    "packages/react/*",
+    "packages/utils/*"
+  ],
+  "version": "independent",
+  "npmClient": "npm",
+  "useWorkspaces": "true",
+  "useNx": "true",
+  "command": {
+    "publish": {
+      "registry": "http://localhost:4873/"
+    },
+    "bootstrap": {
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
+    },
+    "version": {
+      "message": "chore(release): publish"
+    }
+  },
+  "ignoreChanges": [
+    "**/*.md",
+    "**/__tests__/**",
+    "**/__stories__/**"
+  ]
+}
